@@ -8,6 +8,13 @@ const Top_1 = () => {
   const handleSearch=e=>{
     setKey(e.target.value);
   }
+  const [iconColor,setColor]=useState(JSON.parse(localStorage.getItem("iconColor")),"#ffffff");
+  const [tempColor,setTempC]=useState("#ffffff");
+  const handleColor=(e)=>{
+    setTempC(e.target.value)
+    setColor(tempColor);
+    localStorage.setItem("iconColor",JSON.stringify(tempColor));
+  }
   const [settingBox,showSet]=useState(false)
   const [EngineIndex,setEngine]=useState(1)
   const searchEngines=["https://www.bing.com/search?q=","https://www.google.com/search?q=","https://in.search.yahoo.com/search?p","https://www.info.com/serp?q=$","https://duckduckgo.com/?q=$","https://duckduckgo.com/?q=$"]
@@ -51,7 +58,9 @@ const Top_1 = () => {
       console.log("Url Empty")
     }
   }
- 
+ const reload=()=>{
+  window.location.reload();
+ }
 
   return(
     <>
@@ -101,7 +110,29 @@ const Top_1 = () => {
               </div>
               <div className="lines_ Picker">
                   <p>Color of ICONS</p>
-                  <input type="color" name="" id="" value="#ffffff"/>
+                  <input type="color" name="iconColor" value={iconColor} onChange={handleColor}/>
+                  <div className="tick_box" onClick={reload}><i className="fa-solid fa-check fa-xl"></i></div>
+              </div>
+              <div className='lines_'>
+                <p>Icon Style</p>
+                <select className='searchEngs'>
+                  <option value={"solid"}>Solid</option>
+                  <option value={"light"}>Light</option>
+                  <option value={"regular"}>regular</option>
+                  <option value={"thin"}>thin</option>
+                  <option value={"sharp"}>sharp</option>
+                </select>
+              </div>
+              <div className='lines_'>
+                <p>Set this as custom Home </p>
+                <a href='https://www.pcmag.com/how-to/how-to-make-google-your-homepage' className='setCustom'> how ?</a>
+                <div className='setDef_box'>
+                      <p>step 1: open settings</p>
+                      <p>step 2: Select Apperence</p>
+                      <p>step 3: Turn or "show home button"</p>
+                      <p>step 4: Add this page link</p>
+                      <p><span>How to use ? </span>: Click on home botton on any page to convert it</p>
+                </div>
               </div>
               <div className="bott_m">
                   <button className="close" onClick={()=>closeSettings()}>Done</button>

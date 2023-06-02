@@ -22,7 +22,7 @@ const MyApps=()=>{
             appTilte:"Drive"
          }
         ])
-    
+    const [IconColor,setColor]=useState(JSON.parse(localStorage.getItem("iconColor"))||"#ffffff");
     const [Editor,DisplayEditor]=useState(false);
     // const [selectedIndex,setIndex]=useState(-1);
     const [appName,setApp]=useState();
@@ -89,9 +89,9 @@ const MyApps=()=>{
                                 </div>
                                     <a href={ele.appLink} target="_blank">
                                         <div className="logo">
-                                            <i className={`fa-brands fa-${ele.appName} fa-2xl`}></i>
+                                            <i className={`fa-brands fa-solid fa-${ele.appName} fa-2xl`} style={{color:IconColor}}></i>
                                         </div>
-                                        <div className="appName">{ele.appTilte}</div>
+                                        <div className="appName" style={{color:IconColor}}>{ele.appTilte}</div>
                                     </a>
                             </div>
                         ))}

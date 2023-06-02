@@ -33,8 +33,8 @@ body{
 .line_1 p{
   margin-left: 20px;
   font-weight: 600;
-  font-size: 25px;
-  color: rgb(238, 238, 238);
+  font-size: 30px;
+  color: rgb(255, 255, 255);
 }
 
 .spacer1{
@@ -124,7 +124,7 @@ body{
 }
 .app:hover{
   background-color: rgba(255, 228, 196, 0.086);
-  transition: all 0.5s;
+  transition: all 0.4s;
 }
 .logo,.appName{
   display: flex;
