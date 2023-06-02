@@ -1,13 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import Top_1 from './components/Top_1';
+import Time from './components/Line_2';
+import MyApps from './components/AppBox';
 import reportWebVitals from './reportWebVitals';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Top_1 />
+    <Time />
+    <MyApps/>
   </React.StrictMode>
 );
 

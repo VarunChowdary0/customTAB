@@ -1,0 +1,142 @@
+.settingBox{
+    font-size: 18px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(25, 25, 25, 0.842);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1000;
+}
+.lines_{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-left: 23%;
+    margin-right: 23%x;
+}
+.lines_ .inputURlbg{
+    height: 30px;
+    padding-left: 15px;
+    border-radius: 20px;
+    border: none;
+    width: 20%;
+    min-width: 200px;
+    transition: all 0.25s;
+}
+.lines_ .inputURlbg:focus{
+    border: none;
+    outline: none;
+    width:30%;
+}
+.lines_ .inputURlbg:hover{
+    width: 30%;
+}
+.urlHow{
+    position: relative;
+}
+.urlHow:hover ~ .how{
+    opacity: 1;
+}
+.how{
+    position: absolute;
+    top: 200px;
+    left: 10px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    width: 250px;
+    background-color: rgba(0, 0, 0, 0.469);
+    opacity: 0;
+    transition: 0.5s;
+}
+.how:hover{
+    opacity: 1;
+}
+.how a{
+    display: inline block;
+    text-decoration: underline;
+    height: 18px;
+}
+.how p{
+    font-size: 16px;
+}
+
+
+/*---------------------*/
+.tick_box{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(41, 42, 42, 0);
+    transition: all 0.5s;
+}
+.tick_box:hover{
+    background-color: rgb(41, 42, 42);
+}
+.tick_box:active{
+    opacity: 0.5;
+}
+.searchEngs{
+    margin-left: 40px;
+    height: 30px;
+    padding-left: 15px;
+    border-radius: 20px;
+    border: none;
+}
+.searchEngs:focus{
+    outline: none;
+}
+.searchEngs option{
+    background-color: rgb(31, 31, 31);
+    color: white;
+}
+.defSeE{
+    height: 35px;
+    width: fit-content;
+    padding: 5px 20px;
+    background-color: rgb(101, 101, 101);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    font-weight: 700;
+}
+.Picker{
+    margin-top: 10px;
+    
+}
+.Picker input{
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    padding: 0;
+    outline: none;
+    margin-left: 35px;
+}
+.bott_m{
+    display: flex;
+    justify-content: center;
+}
+.close{
+    width: 60px;
+    position: absolute;
+    bottom: 30px;
+    height: 40px;
+    background-color: rgba(1, 1, 1, 0.371);
+    border: none;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    font-size: 15px;
+}
+.close:active{
+    opacity: 0.7;
+}
