@@ -212,4 +212,7 @@
     .tick_box{
         margin-right: 10px;
     }
+    .setDef_box{
+        height: fit-content;
+    }
 }
