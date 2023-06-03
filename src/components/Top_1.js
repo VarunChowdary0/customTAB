@@ -130,7 +130,9 @@ const Top_1 = () => {
                   </div>
                   <div className='lines_'>
                     <p>Set this as custom Home </p>
-                    <a href='https://www.pcmag.com/how-to/how-to-make-google-your-homepage' className='setCustom'> how ?</a>
+                    <a href='https://www.pcmag.com/how-to/how-to-make-google-your-homepage' className='setCustom'> 
+                    <p>how ?</p>
+                    </a>
                     <div className='setDef_box'>
                           <p>step 1: open settings</p>
                           <p>step 2: Select Apperence</p>

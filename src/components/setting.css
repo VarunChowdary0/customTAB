@@ -154,9 +154,13 @@
 
 .setCustom{
     font-style: italic;
+    width: 80px;
     margin-top: 55px;
-    color: aqua;
     margin-left: 50px;
+}
+.setCustom p{
+    color: aqua;
+    width: 60px;
 }
 .setCustom:hover{
     cursor: pointer;
