@@ -14,10 +14,13 @@
 .lines_{
     width: 100vw;
     display: flex;
+    flex-direction: row;
     align-items: center;
     gap: 30px;
-    margin-left: 23%;
-    margin-right: 23%x;
+}
+.srcEng div{
+    display: flex;
+    align-items: center;
 }
 .lines_ .inputURlbg{
     height: 30px;
@@ -35,6 +38,13 @@
 }
 .lines_ .inputURlbg:hover{
     width: 30%;
+}
+.setting_center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10%;
 }
 .urlHow{
     position: relative;
@@ -107,6 +117,7 @@
     justify-content: center;
     border-radius: 20px;
     font-weight: 700;
+    margin-left: 30px;
 }
 .Picker{
     margin-top: 10px;
@@ -173,4 +184,28 @@
 }
 .setDef_box p{
     font-size: 15px;
+}
+@media screen and (max-width: 990px) {
+    .setting_center{
+        margin-left: 5px;
+    }
+    .srcEng{
+        display: flex;
+        align-items:start;
+        flex-direction: column;
+        justify-content: left;
+    }
+    .searchEngs{
+        margin-left: 10px;
+    }
+    .lines_ .inputURlbg{
+        margin-left: 10px;
+        
+    }
+    .lines_ {
+        gap: 10px;
+    }
+    .tick_box{
+        margin-right: 10px;
+    }
 }

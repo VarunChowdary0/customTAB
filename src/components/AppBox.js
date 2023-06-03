@@ -89,14 +89,14 @@ const MyApps=()=>{
                                 </div>
                                     <a href={ele.appLink} target="_blank">
                                         <div className="logo">
-                                            <i className={`fa-brands fa-solid fa-${ele.appName} fa-2xl`} style={{color:IconColor}}></i>
+                                            <i className={`fa-solid fa-brands fa-${ele.appName} fa-2xl`} style={{color:IconColor}}></i>
                                         </div>
                                         <div className="appName" style={{color:IconColor}}>{ele.appTilte}</div>
                                     </a>
                             </div>
                         ))}
                         <div className="app addnew" onClick={()=>showEditor(appArr.length)}>
-                        <i class="fa-solid fa-plus fa-2xl"></i>
+                        <i className="fa-solid fa-plus fa-2xl"></i>
                         </div>
                 </div>
 

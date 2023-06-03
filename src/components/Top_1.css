@@ -216,3 +216,20 @@ a{
   display: flex;
   gap: 10px;
 }
+@media screen and (max-width:800px) {
+  .Line_2 h1{
+    font-size: 60px;
+  }
+  .line_1 p{
+    font-size: 20px;
+    font-weight: 300;
+  }
+  .line_1 .spacer1{
+    width: 0;
+  }
+}
+@media screen and (max-width:500px) {
+  .Line_2 h1{
+    font-size: 50px;
+  }
+}

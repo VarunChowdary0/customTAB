@@ -80,60 +80,66 @@ const Top_1 = () => {
 
         {settingBox && (
               <div className="settingBox">
-              <div className="lines_">
-                  <p className='urlHow'>background image</p>
-                  <input className="inputURlbg" type="url" placeholder="Enter url of image" value={newBGI} name='newBGI' onChange={handleURL}/>
-                  <div className="tick_box" onClick={setImage}><i className="fa-solid fa-check fa-xl"></i></div>
-                  <div className='how'>
-                    <p>
-                    Open a Photo Explorer like
-                     <span><a href='https://www.pexels.com/search/4k%20wallpaper/' target='_blank'>www.pexels.com</a>
-                  select the Image , </span> 
-                  Open image in a new tab by 
-                  right click and selecting the
-                   'open image in new tab'
-                    </p>
-                   
+                <div className='setting_center'>
+                    <div className="lines_">
+                      <p className='urlHow'>background image</p>
+                      <input className="inputURlbg" type="url" placeholder="Enter url of image" value={newBGI} name='newBGI' onChange={handleURL}/>
+                      <div className="tick_box" onClick={setImage}><i className="fa-solid fa-check fa-xl"></i></div>
+                      <div className='how'>
+                        <p>
+                        Open a Photo Explorer like
+                        <span><a href='https://www.pexels.com/search/4k%20wallpaper/' target='_blank'>www.pexels.com</a>
+                      select the Image , </span> 
+                      Open image in a new tab by 
+                      right click and selecting the
+                      'open image in new tab'
+                        </p>
+                      
+                      </div>
                   </div>
-              </div>
-              <div className="lines_">
-                  <p>Search engine</p>
-                  <select className="searchEngs" name="" id="" defaultValue="Yahoo">
-                      <option value="1">Google</option>
-                      <option value="0">Bing</option>
-                      <option value="4">DuckDuckGo</option>
-                      <option value="3">Info.com</option>
-                      <option value="2">Yahoo</option>
-                  </select>
-                  <p>Current search Engine</p>
-                  <div className="defSeE">Google</div>
-              </div>
-              <div className="lines_ Picker">
-                  <p>Color of ICONS</p>
-                  <input type="color" name="iconColor" value={iconColor} onChange={handleColor}/>
-                  <div className="tick_box" onClick={reload}><i className="fa-solid fa-check fa-xl"></i></div>
-              </div>
-              <div className='lines_'>
-                <p>Icon Style</p>
-                <select className='searchEngs'>
-                  <option value={"solid"}>Solid</option>
-                  <option value={"light"}>Light</option>
-                  <option value={"regular"}>regular</option>
-                  <option value={"thin"}>thin</option>
-                  <option value={"sharp"}>sharp</option>
-                </select>
-              </div>
-              <div className='lines_'>
-                <p>Set this as custom Home </p>
-                <a href='https://www.pcmag.com/how-to/how-to-make-google-your-homepage' className='setCustom'> how ?</a>
-                <div className='setDef_box'>
-                      <p>step 1: open settings</p>
-                      <p>step 2: Select Apperence</p>
-                      <p>step 3: Turn or "show home button"</p>
-                      <p>step 4: Add this page link</p>
-                      <p><span>How to use ? </span>: Click on home botton on any page to convert it</p>
+                  <div className="lines_ srcEng">
+                      <div>
+                        <p>Search engine</p>
+                        <select className="searchEngs" name="" id="" defaultValue="Yahoo">
+                            <option value="1">Google</option>
+                            <option value="0">Bing</option>
+                            <option value="4">DuckDuckGo</option>
+                            <option value="3">Info.com</option>
+                            <option value="2">Yahoo</option>
+                        </select>
+                      </div>
+                      <div>
+                        <p>Current search Engine</p>
+                        <div className="defSeE">Google</div>
+                      </div>
+                  </div>
+                  <div className="lines_ Picker">
+                      <p>Color of ICONS</p>
+                      <input type="color" name="iconColor" value={iconColor} onChange={handleColor}/>
+                      <div className="tick_box" onClick={reload}><i className="fa-solid fa-check fa-xl"></i></div>
+                  </div>
+                  <div className='lines_'>
+                    <p>Icon Style</p>
+                    <select className='searchEngs'>
+                      <option value={"solid"}>Solid</option>
+                      <option value={"light"}>Light</option>
+                      <option value={"regular"}>regular</option>
+                      <option value={"thin"}>thin</option>
+                      <option value={"sharp"}>sharp</option>
+                    </select>
+                  </div>
+                  <div className='lines_'>
+                    <p>Set this as custom Home </p>
+                    <a href='https://www.pcmag.com/how-to/how-to-make-google-your-homepage' className='setCustom'> how ?</a>
+                    <div className='setDef_box'>
+                          <p>step 1: open settings</p>
+                          <p>step 2: Select Apperence</p>
+                          <p>step 3: Turn or "show home button"</p>
+                          <p>step 4: Add this page link</p>
+                          <p><span>How to use ? </span>: Click on home botton on any page to convert it</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
               <div className="bott_m">
                   <button className="close" onClick={()=>closeSettings()}>Done</button>
               </div>
