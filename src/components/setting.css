@@ -55,16 +55,13 @@
 .how{
     position: absolute;
     top: 200px;
-    left: 10px;
+    right: 0px;
     padding: 5px 10px;
     border-radius: 10px;
     width: 250px;
     background-color: rgba(0, 0, 0, 0.469);
     opacity: 0;
     transition: 0.5s;
-}
-.how:hover{
-    opacity: 1;
 }
 .how a{
     display: inline block;
@@ -160,7 +157,8 @@
 }
 .setCustom p{
     color: aqua;
-    width: 60px;
+    width: 100px;
+    margin-top: 0;
 }
 .setCustom:hover{
     cursor: pointer;
@@ -214,5 +212,8 @@
     }
     .setDef_box{
         height: fit-content;
+    }
+    .how{
+        top: 10px;
     }
 }
