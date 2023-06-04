@@ -114,7 +114,7 @@ const Top_1 = () => {
                       </div>
                   </div>
                   <div className="lines_ Picker">
-                      <p>Color of ICONS</p>
+                      <p>Color of App name</p>
                       <input type="color" name="iconColor" value={iconColor} onChange={handleColor}/>
                       <div className="tick_box" onClick={reload}><i className="fa-solid fa-check fa-xl"></i></div>
                   </div>

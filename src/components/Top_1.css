@@ -126,10 +126,19 @@ body{
   background-color: rgba(255, 228, 196, 0.086);
   transition: all 0.4s;
 }
+
+.logo img{
+  width: 35%;
+  font-size: 40px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 .logo,.appName{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.appName{
+  background-color: rgba(0, 0, 0, 0.141);
 }
 .edit_{
   position: absolute;

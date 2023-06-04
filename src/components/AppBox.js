@@ -78,6 +78,7 @@ const MyApps=()=>{
         console.log(newArr,appArr)
         localStorage.setItem("Myapps",JSON.stringify(newArr));
     }
+
     return(
         <>
             <div className="line_3">
@@ -89,7 +90,9 @@ const MyApps=()=>{
                                 </div>
                                     <a href={ele.appLink} target="_blank">
                                         <div className="logo">
-                                            <i className={`fa-solid fa-brands fa-${ele.appName} fa-2xl`} style={{color:IconColor}}></i>
+                                            {/* <i className={`fa-solid fa-brands fa-${ele.appName} fa-2xl`} style={{color:IconColor}}></i> */}
+                                            <img src={`${ele.appLink}favicon.ico`} alt={ele.appName[0].toUpperCase() } placeholderText="Image Not Available" />
+                                            
                                         </div>
                                         <div className="appName" style={{color:IconColor}}>{ele.appTilte}</div>
                                     </a>
