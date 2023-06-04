@@ -39,9 +39,6 @@ const MyApps=()=>{
     )
     const showEditor=(i)=>{
         console.log(i)
-        setApp();
-        setLink();
-        setTitle();
         DisplayEditor(true)
         if(i<appArr.length){
             console.log("Under Development")
@@ -63,6 +60,9 @@ const MyApps=()=>{
                 const newArr=[...appArr,AppObj];
                 addApp(newArr);
                 localStorage.setItem("Myapps",JSON.stringify(newArr));
+                setApp();
+                setLink();
+                setTitle();
                 cancleEditor();
             }
             else{
