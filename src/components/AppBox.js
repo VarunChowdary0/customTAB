@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Top_1.css"
 const MyApps=()=>{
-    const [appArr,addApp]=useState(JSON.parse(localStorage.getItem("Myapps"))||[{
-        appName:"youtube",
-        appLink:"https://www.youtube.com/",
-        appTilte:"youtube"
+      //===
+      const hostName='http://localhost:1800';
+      //====
+    const [appArr,addApp]=useState(JSON.parse(localStorage.getItem("Myapps"))||[
+        {
+            appName:"youtube",
+            appLink:"https://www.youtube.com/",
+            appTilte:"youtube"
          },
          {
             appName:'g',
@@ -22,6 +26,8 @@ const MyApps=()=>{
             appTilte:"Drive"
          }
         ])
+    //-----------Apps to Api
+ 
     const [IconColor,setColor]=useState(JSON.parse(localStorage.getItem("iconColor"))||"#ffffff");
     const [Editor,DisplayEditor]=useState(false);
     // const [selectedIndex,setIndex]=useState(-1);

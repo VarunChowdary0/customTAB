@@ -5,6 +5,7 @@ import Top_1 from './components/Top_1';
 import Time from './components/Line_2';
 import MyApps from './components/AppBox';
 import reportWebVitals from './reportWebVitals';
+import SignUp from './components/line_4';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,6 +14,7 @@ root.render(
     <Top_1 />
     <Time />
     <MyApps/>
+    <SignUp/>
   </React.StrictMode>
 );
 

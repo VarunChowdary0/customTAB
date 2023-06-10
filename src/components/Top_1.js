@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import "./Top_1.css"
 import "./setting.css"
@@ -8,6 +8,9 @@ const Top_1 = () => {
   const handleSearch=e=>{
     setKey(e.target.value);
   }
+  //===
+  const hostName='https://backend-api-60pw.onrender.com';
+  //====
   const [iconColor,setColor]=useState(JSON.parse(localStorage.getItem("iconColor")),"#ffffff");
   const [tempColor,setTempC]=useState("#ffffff");
   const handleColor=(e)=>{
@@ -16,8 +19,17 @@ const Top_1 = () => {
     localStorage.setItem("iconColor",JSON.stringify(tempColor));
   }
   const [settingBox,showSet]=useState(false)
-  const [EngineIndex,setEngine]=useState(1)
+  const [EngineIndex,setEngine]=useState(JSON.parse(localStorage.getItem("myS_Eng"))||1)
+  const engNames=['Bing','Google','Yahoo','Info','Duck go']
   const searchEngines=["https://www.bing.com/search?q=","https://www.google.com/search?q=","https://in.search.yahoo.com/search?p","https://www.info.com/serp?q=$","https://duckduckgo.com/?q=$","https://duckduckgo.com/?q=$"]
+
+  const setEng=(e)=>{
+    setEngine(e.target.value);
+    const engIndex=e.target.value
+    localStorage.setItem('myS_Eng',JSON.stringify(engIndex));
+    console.log(engIndex);
+  }
+
   const search=()=>{
     const searchWord=`${searchEngines[eval(`${EngineIndex}`)]}${encodeURIComponent(searchKey)}`;
     if(searchKey.trim().length>0){
@@ -26,13 +38,13 @@ const Top_1 = () => {
       } 
   }
   const check=(eve)=>{
-      if(searchKey.trim().length>0){
+      if(searchKey.length>0){
         if(eve.key==="Enter"){
           search();
       }
     }
   }
-  const [backgroundimg,setImg]=useState(JSON.parse(localStorage.getItem("BGIarr"))||["https://images.pexels.com/photos/1612353/pexels-photo-1612353.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"]);
+  const [backgroundimg,setImg]=useState(JSON.parse(localStorage.getItem("BGIarr"))||"https://images.pexels.com/photos/1612353/pexels-photo-1612353.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
   const [newBGI,setBGI]=useState("");
   const displaySettings=()=>{
     showSet(true);
@@ -44,28 +56,32 @@ const Top_1 = () => {
   const handleURL=(e)=>{
     setBGI(e.target.value);
   }
-
+  const [fetchOnBGI,setFetchBGI]=useState(0);
   const setImage=()=>{
     console.log(newBGI,backgroundimg)
     if(newBGI.trim()!==""){
-      const updatedBGI=[...backgroundimg, newBGI];
+      const updatedBGI=(newBGI);
       setImg(updatedBGI);
       console.log(updatedBGI);
       localStorage.setItem("BGIarr",JSON.stringify(updatedBGI));
-      setBGI("")
+      setFetchBGI(fetchOnBGI+1);
     }
     else{
       console.log("Url Empty")
     }
   }
+  
  const reload=()=>{
   window.location.reload();
  }
 
+
+ //-----------  Settting the New User;;
+//-------Apps
   return(
     <>
     <div className='background'
-      style={{backgroundImage:`url(${backgroundimg[backgroundimg.length-1]})`}}
+      style={{backgroundImage:`url(${backgroundimg})`}}
     ></div>
       <div className='line_1'>
         <p>Search</p>
@@ -98,19 +114,19 @@ const Top_1 = () => {
                       </div>
                   </div>
                   <div className="lines_ srcEng">
-                      <div>
-                        <p>Search engine</p>
-                        <select className="searchEngs" name="" id="" defaultValue="Yahoo">
-                            <option value="1">Google</option>
-                            <option value="0">Bing</option>
-                            <option value="4">DuckDuckGo</option>
-                            <option value="3">Info.com</option>
-                            <option value="2">Yahoo</option>
-                        </select>
-                      </div>
+                  <div>
+                      <p>Search engine</p>
+                      <select className="searchEngs" value={EngineIndex} onChange={setEng}>
+                        <option value={1}>Google</option>
+                        <option value={0}>Bing</option>
+                        <option value={4}>DuckDuckGo</option>
+                        <option value={3}>Info.com</option>
+                        <option value={2} selected="selected">Yahoo</option>
+                      </select>
+                    </div>
                       <div>
                         <p>Current search Engine</p>
-                        <div className="defSeE">Google</div>
+                        <div className="defSeE">{engNames[EngineIndex]}</div>
                       </div>
                   </div>
                   <div className="lines_ Picker">

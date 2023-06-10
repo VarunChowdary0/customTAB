@@ -1,0 +1,271 @@
+.line_4{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    gap: 10px;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+   transition: all 0.3s;
+}
+.line_4:hover{
+    background-color: rgba(240, 248, 255, 0.148);
+}
+.line_4:active{
+    opacity: 0.5;
+}
+/*---------------------------*/
+.signUp_box{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    gap: 30px;
+}
+.username_{
+    margin-top: 10px;
+    width: 30%;
+    min-width: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+.hr_1{
+    margin-top: -35px;
+    width: 35%;
+    min-width: 230px;
+    border: 0.1px solid rgb(190, 186, 186);
+}
+.username_ span{
+    width: 100%;
+    font-size: 20px;
+    opacity: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    top: 5px;
+    transition: all 0.3s;
+    z-index: -1;
+}
+
+.username_ input {
+    height: 40px;
+    margin: 0;
+    background-color: rgba(145, 0, 0, 0);
+    border: none;
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: whitesmoke;
+    margin-bottom: 5px;
+}
+
+.username_ input:focus {
+    outline: none;
+    
+}
+.inp_box:focus::placeholder{
+    color: transparent;
+}
+.inp_box:focus ~.inp_focus{
+    top: -20px;
+    opacity: 0.7;
+}
+.button_save{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.but_sve_{
+    height: 40px;
+    width: 25%;
+    min-width: 100px;
+    border: none;
+    border-radius: 80px;
+    color: white;
+    font-weight: 500;
+    font-size: 15px;
+    background: linear-gradient(90deg,rgb(32, 169, 207),rgb(127, 17, 182));
+    transition: all 0.2s;
+}
+.but_sve_:active{
+    opacity: 0.6;
+}
+.username_ span{
+    display: flex;
+    gap: 10px;
+}
+.backbutton{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition:all 0.4s;
+}
+.backbutton:hover,.menu:hover{
+    background-color: rgba(240, 248, 255, 0.283); 
+}
+.backbutton:active,.menu:active{
+    opacity: 0.5;
+}
+.menu{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition:all 0.4s;
+} 
+/*=========*/
+.logOutBotton{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background-color: black;
+    width: 100vw;
+    font-size: 2rem;
+    color: lavender;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logOutBotton p:hover{
+    cursor: pointer;
+}
+.logOutBotton .haha{
+    font-size: 20px;
+}
+/* cloud */
+.cloud{
+    position: fixed;
+    right: 30px;
+    bottom: 15vh;
+}
+.fa-cloud-arrow-up{
+    transition: all 0.3s;
+}
+.fa-cloud-arrow-up:active{
+    color: gold;
+}
+.fa-ellipsis-vertical{
+    font-size: 15px;
+}
+/*==menubox==*/
+.menuBox{
+    position: fixed;
+    top: 60px;
+    right: 50px;
+    min-height: 100px;
+    min-width: 100px;
+    height: 26vh;
+    width: 50vw;
+    max-width: 250px;
+    border-radius: 10px;
+    z-index: 200;
+    background-color: rgb(54, 54, 54);
+}
+.closeMenu{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.closeMenu:hover{
+    cursor: pointer;
+}
+.menu_text{
+    display: flex;
+    margin-top: 0px;
+    align-items: center;
+    justify-content: center;
+}
+.menu_text p{
+    font-size: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.inp_box_uq{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0px;
+}
+.unq_inp_box{
+    height: 25px;
+    width: 80%;
+    border: none;
+    padding-left: 10px;
+    border-radius: 5px;
+}
+.unq_inp_box:focus{
+
+    outline: none;
+}
+.save__but{
+    display: flex;
+    justify-content: center;
+    
+}
+.save__but button{
+    height: 33px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(127, 17, 182);
+    font-weight: 600;
+    position: absolute;
+    bottom: 10px;
+}
+.save__but button:active{
+    opacity: 0.7;
+    transition: 0.4s;
+}
+.buffer_1{
+    display: flex;
+    justify-content: center;
+}
+.MyUnqID{
+    color: rgb(0, 255, 255);
+}
+.main_butto{
+    margin-left: 80px;
+}
+.MyUnqID span{
+    color: rgb(0, 255, 170);
+}
+.openSignIN{
+    color:aqua;
+}
+.openSignIN:hover{
+    cursor: pointer;
+}
+@media screen and (max-width:500px) {
+    .menu_text{
+        margin-top: 20px;
+    }
+    .menuBox{
+        min-width: 180px;
+    }
+}
