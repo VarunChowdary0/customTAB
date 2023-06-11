@@ -163,7 +163,12 @@
 .cloud{
     position: fixed;
     right: 30px;
-    bottom: 15vh;
+    bottom: 50pxvh;
+}
+.fa-user-plus{
+    position: fixed;
+    right: 30px;
+    bottom: 20px;
 }
 .fa-cloud-arrow-up{
     transition: all 0.3s;
