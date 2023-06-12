@@ -47,11 +47,11 @@ const SignUp=()=>{
         return res.json();
       })
       .then(Data=>{
-        console.log(Data);
+       // console.log(Data);
         setFlasher(Data['message']);
-        console.log('unq:',Data['unqid'])
+       // console.log('unq:',Data['unqid'])
         GetTheUnq_tab(Data['unqid']);
-        console.log(Data['message']);
+       // console.log(Data['message']);
       })
       .catch(err=>{
         console.log("fetch error: ->",err);
@@ -70,7 +70,7 @@ const SignUp=()=>{
         if (usrnme_1.value.trim().length !== 0) {
           if (unqCd_1.value.trim().length >= 5) {
             if (pswd_1.value.trim().length >= 8) {
-              console.log("ok");
+             // console.log("ok");
               setCode(unqCd_1.value);
               const userDATA={
                 username:usrnme_1.value,
@@ -78,10 +78,10 @@ const SignUp=()=>{
                 password:pswd_1.value
               };
               setCode(unqCd_1.value);
-              console.log(unqCd_1);
+            //  console.log(unqCd_1);
               localStorage.setItem('MYunqId',JSON.stringify(unqCd_1.value));
               sendToAPI_1(userDATA);
-              console.log(userDATA);
+             // console.log(userDATA);
             } else {
               setFlasher("Password too short.");
             }
@@ -155,7 +155,7 @@ const SignUp=()=>{
             }
           })
           .then(data => {
-            console.log(data); // Handle response data here
+           // console.log(data); // Handle response data here
           })
           .catch(err => {
             console.log("Fetch error:", err);
@@ -174,7 +174,7 @@ const SignUp=()=>{
     const givenUnq=document.querySelector(".unq_inp_box");
     if(givenUnq.value.length!==0)
     {
-      console.log(givenUnq);
+     // console.log(givenUnq);
       GetTheUnq_tab(givenUnq.value);
 
     }
@@ -186,7 +186,7 @@ const SignUp=()=>{
 
   const GetTheUnq_tab=(givenUnq)=>{
     const send_unq_id={'unqid':givenUnq};
-    console.log(givenUnq);
+    //console.log(givenUnq);
     fetch(`${hostName}/Send_tabInfo`,
     {
       method : 'POST',
@@ -196,7 +196,7 @@ const SignUp=()=>{
       body : JSON.stringify(send_unq_id)
     })
     .then(res=>{
-      console.log(res);
+     // console.log(res);
       if(res.ok){
         setFlash_2('Getting Tab Info..');
         setTimeout(()=>setFlash_2(''),2000)
@@ -205,7 +205,7 @@ const SignUp=()=>{
     })
     .then(Data=>{
       const data=Data;
-      console.log('reading:',data);
+     // console.log('reading:',data);
       if(data.message==='Not found'){
         setFlash_2('Not found,Please Verify.');
         setTimeout(()=>setFlash_2(''),2000)
@@ -213,10 +213,10 @@ const SignUp=()=>{
       else{
         setFlash_2('Tab Info Found..');
         const Appdata=(data['Tab Info'][0]['app_data']);
-        console.log(Appdata);
+        //console.log(Appdata);
         const backgroundimg__1=(data['Tab Info'][0]['tab_setting']['bg_img'])
         localStorage.setItem('BGIarr',JSON.stringify(backgroundimg__1));
-        console.log(backgroundimg__1);
+       // console.log(backgroundimg__1);
         localStorage.setItem("Myapps",JSON.stringify(Appdata));
         setTimeout(()=>setFlash_2(''),2000);
         setTimeout(()=>menuOff(),2500);
@@ -243,12 +243,12 @@ const SignUp=()=>{
           const pswd_1_SignIN = document.querySelector('.inp_pswd_SidnIn');
           if (usrnme_1_SignIN.value.trim().length !== 0) {
               if (pswd_1_SignIN.value.trim().length >= 8) {
-                console.log("ok");
+                //console.log("ok");
                 const userDATA={
                   username:usrnme_1_SignIN.value,
                   password:pswd_1_SignIN.value
                 };
-                console.log(userDATA);
+              //  console.log(userDATA);
                 RunAuthentication(userDATA);
               } else {
                 setFlasher("Password too short.");
@@ -277,13 +277,13 @@ const SignUp=()=>{
         return res.json();
       })
       .then(Data=>{
-        console.log(Data);
+      //  console.log(Data);
         setFlasher(Data['message']);
         console.log('unq:',Data['unqid']);
         if(Data['message']==='User Found'){
           setCode(Data['unqid']);
           localStorage.setItem('MYunqId',JSON.stringify(Data['unqid']));
-          console.log(unqCode);
+        //  console.log(unqCode);
           setCode(Data['unqid']);
           GetTheUnq_tab(Data['unqid'])
           setTimeout(()=>CloseSidgnIN(),2500);
@@ -359,7 +359,7 @@ const SignUp=()=>{
       .then(data => {
         if (data['message'] === 'SERVER ONLINE') {
           setStatus(true);
-          console.log(data);
+         // console.log(data);
         } else {
           setTimeout(refresh, 5000); // Retry after 5 seconds if server is not online
         }
