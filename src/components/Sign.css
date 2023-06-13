@@ -266,6 +266,35 @@
 .openSignIN:hover{
     cursor: pointer;
 }
+/* loader*/
+.loader_1{
+    margin-top: 10px;
+}
+.inner{
+    height: 30px;
+    width: 30px;
+    background: linear-gradient(white,black);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: buffer  infinite 30s ease-in-out;
+}
+@keyframes buffer {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(36000deg);
+    }
+}
+.outer{
+    height: 25px;
+    width: 25px;
+    background-color: rgb(54, 54, 54);
+    border-radius: 50%;
+}
+
 @media screen and (max-width:500px) {
     .menu_text{
         margin-top: 20px;

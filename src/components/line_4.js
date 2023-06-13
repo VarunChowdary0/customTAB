@@ -8,6 +8,7 @@ const SignUp=()=>{
     }
     const menuOff=()=>{
       setMenu(false);
+      setFlash_2('');
     }
     const hostName='https://backend-api-60pw.onrender.com';
     const [signedIN,setsignIN]=useState(JSON.parse(localStorage.getItem("log_Status"))||false);
@@ -175,6 +176,7 @@ const SignUp=()=>{
   }
 
   //===== UNQ code validation;
+  const [load,setload]=useState(false);
   const [flash_2,setFlash_2]=useState('');
   const takeUnq_id=()=>{
     const givenUnq=document.querySelector(".unq_inp_box");
@@ -192,6 +194,7 @@ const SignUp=()=>{
 
   const GetTheUnq_tab=(givenUnq)=>{
     const send_unq_id={'unqid':givenUnq};
+    setload(true);
     //console.log(givenUnq);
     fetch(`${hostName}/Send_tabInfo`,
     {
@@ -204,6 +207,7 @@ const SignUp=()=>{
     .then(res=>{
      // console.log(res);
       if(res.ok){
+        //setload(false);
         setFlash_2('Getting Tab Info..');
         setTimeout(()=>setFlash_2(''),2000)
       }
@@ -213,10 +217,12 @@ const SignUp=()=>{
       const data=Data;
      // console.log('reading:',data);
       if(data.message==='Not found'){
+        setload(false);
         setFlash_2('Not found,Please Verify.');
         setTimeout(()=>setFlash_2(''),2000)
       }
       else{
+        setload(false);
         setFlash_2('Tab Info Found..');
         const Appdata=(data['Tab Info'][0]['app_data']);
         //console.log(Appdata);
@@ -230,6 +236,7 @@ const SignUp=()=>{
     })
     .catch(err=>{
       console.log("Fetch Error ->:",err);
+      setload(false);
       setFlash_2('Server error , please try later')
     })
   }
@@ -455,6 +462,13 @@ const SignUp=()=>{
           <input className='unq_inp_box' placeholder='Unique Code' type='text'/>
         </div>
         <div className='buffer_1'>
+          {load && 
+            <div className='loader_1'>
+              <div class="inner">
+                <div class="outer"></div>
+            </div>
+            </div>
+          }
         <p>{flash_2}</p>
         </div>
         <div className='save__but'>
