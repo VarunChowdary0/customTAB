@@ -209,7 +209,8 @@ const SignUp=()=>{
       if(res.ok){
         //setload(false);
         setFlash_2('Getting Tab Info..');
-        setTimeout(()=>setFlash_2(''),2000)
+        setTimeout(()=>setFlash_2('reloading....'),2000)
+        setTimeout(()=>window.location.reload(),500);
       }
       return res.json();
     })

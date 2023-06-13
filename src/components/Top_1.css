@@ -138,7 +138,7 @@ body{
   justify-content: center;
 }
 .appName{
-  background-color: rgba(0, 0, 0, 0.078);
+  background-color: rgba(0, 0, 0, 0.031);
 }
 .edit_{
   position: absolute;
@@ -240,5 +240,26 @@ a{
 @media screen and (max-width:500px) {
   .Line_2 h1{
     font-size: 50px;
+  }
+  /* .AppBox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  } */
+  .app{
+    width: 35%;
+    background-color: rgba(66, 64, 66, 0.041);
+  }
+  .app img{
+    width: 45%;
+  }
+  .app:hover{
+    background-color: rgba(240, 248, 255, 0.079);
+    transition: 0.3s;
+  }
+  .edit_{
+    opacity: 0.4;
   }
 }
