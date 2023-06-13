@@ -94,7 +94,7 @@ body{
 }
 .AppBox{
   width: 70%;
-  height: 40vh;
+  height: fit-content;
   transition: all 0.5s;
   padding: 10px;
   border-radius: 20px;
@@ -249,9 +249,9 @@ a{
     gap: 15px;
   } */
   .AppBox{
-    row-gap: 20px;
+    row-gap: 25px;
     column-gap:15px ;
-    margin-bottom: 150px;
+    margin-bottom: 100px;
   }
   .app{
     width: 35%;
