@@ -136,7 +136,9 @@ const SignUp=()=>{
   setInterval(checkUserStat, 5000); 
   setTimeout(checkUpdate, 20000);
   //=====================Tab info API link
+  const [cloudColor,setCloud]=useState('white')
   const sendToApi_tab_data=() => {
+    setCloud('gold');
     if(signINStatus){
       if(backgroundimg.trim()!==''){
         fetch(`${hostName}/api`, {// main rout api.
@@ -149,6 +151,8 @@ const SignUp=()=>{
           .then(res => {
             if (res.ok) {
               console.log("Fetch success", res);
+              setCloud('green');
+              setTimeout(()=>setCloud('white'),1500);
               return res.json(); // Parse response data
             } else {
               throw new Error('Request failed');
@@ -160,6 +164,8 @@ const SignUp=()=>{
           .catch(err => {
             console.log("Fetch error:", err);
             setFlasher('Server not responding, try again after few minutes')
+            setCloud('red');
+            setTimeout(()=>setCloud('white'),1500);
           });
        }
        else{
@@ -432,7 +438,7 @@ const SignUp=()=>{
      { !userLog &&(
         signedIN && <>
           <div className='cloud' onClick={sendToApi_tab_data}>
-          <i className="fa-solid fa-cloud-arrow-up fa-xl"></i>
+          <i style={{color : `${cloudColor}`}} className="fa-solid fa-cloud-arrow-up fa-xl"></i>
         </div>
         </>
         )
