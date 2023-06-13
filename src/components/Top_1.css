@@ -248,6 +248,9 @@ a{
     justify-content: center;
     gap: 15px;
   } */
+  .AppBox{
+    row-gap: 20px;
+  }
   .app{
     width: 35%;
     background-color: rgba(66, 64, 66, 0.041);
