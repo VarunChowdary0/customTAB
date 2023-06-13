@@ -250,6 +250,7 @@ a{
   } */
   .AppBox{
     row-gap: 20px;
+    column-gap:15px ;
   }
   .app{
     width: 35%;
