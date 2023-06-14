@@ -282,4 +282,7 @@ a{
   .edit_{
     opacity: 0.4;
   }
+  .blurer{
+    display: none;
+  }
 }
