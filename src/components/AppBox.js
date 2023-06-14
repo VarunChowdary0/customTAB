@@ -100,6 +100,7 @@ const MyApps=()=>{
                                     <a href={ele.appLink} target="_blank">
                                         <div className="logo">
                                             {/* <i className={`fa-solid fa-brands fa-${ele.appName} fa-2xl`} style={{color:IconColor}}></i> */}
+                                            
                                             <img src={`${ele.appLink}favicon.ico`} alt={ele.appName[0].toUpperCase() }  />
                                             
                                         </div>

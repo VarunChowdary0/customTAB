@@ -28,6 +28,7 @@ const SignUp=()=>{
     //==
     const sendToAPI_1=(data)=>{
       console.log('fetching..')
+      setBuffer_sU(true);
       fetch(`${hostName}/newUser`,
       {
         method:'POST',
@@ -39,11 +40,12 @@ const SignUp=()=>{
       .then(res=>{
         if(res.ok){
           setFlasher('User Created');
+          setBuffer_sU(false);
           setTimeout(()=>setsignIN(true),1500);
-          
         }
         else{
           setFlasher("Unable to process.")
+          setBuffer_sU(false);
         }
         return res.json();
       })
@@ -52,10 +54,12 @@ const SignUp=()=>{
         setFlasher(Data['message']);
        // console.log('unq:',Data['unqid'])
         GetTheUnq_tab(Data['unqid']);
+        setBuffer_sU(false);
        // console.log(Data['message']);
       })
       .catch(err=>{
         console.log("fetch error: ->",err);
+        setBuffer_sU(false);
         setFlasher('Server is not responding.. please wait.. , try again after few minutes')
       })
     }
@@ -137,9 +141,13 @@ const SignUp=()=>{
   setInterval(checkUserStat, 5000); 
   setTimeout(checkUpdate, 20000);
   //=====================Tab info API link
-  const [cloudColor,setCloud]=useState('white')
+  const [cloudIcon,setCloud]=useState(true)
+  const [tick_1,setTick]=useState(false);
+  const [buffer_3,setBuf_3]=useState(false);
+  const [failure,setFail]=useState(false);
   const sendToApi_tab_data=() => {
-    setCloud('gold');
+    setCloud(false);
+    setBuf_3(true);
     if(signINStatus){
       if(backgroundimg.trim()!==''){
         fetch(`${hostName}/api`, {// main rout api.
@@ -152,10 +160,16 @@ const SignUp=()=>{
           .then(res => {
             if (res.ok) {
               console.log("Fetch success", res);
-              setCloud('green');
-              setTimeout(()=>setCloud('white'),1500);
+              setBuf_3(false);
+              setTick(true);
+              setTimeout(()=>{
+                setTick(false)
+                setCloud(true);
+              },1500);
               return res.json(); // Parse response data
             } else {
+              setFail(true);
+              setTimeout(()=>setFail(false),1500);
               throw new Error('Request failed');
             }
           })
@@ -165,8 +179,9 @@ const SignUp=()=>{
           .catch(err => {
             console.log("Fetch error:", err);
             setFlasher('Server not responding, try again after few minutes')
-            setCloud('red');
-            setTimeout(()=>setCloud('white'),1500);
+            setBuf_3(false);
+            setFail(true);
+            setTimeout(()=>setFail(false),1500);
           });
        }
        else{
@@ -388,6 +403,7 @@ const SignUp=()=>{
     refresh(); // Call refresh function once when the component mounts
   }, []);
   
+  const [buffer_signUP,setBuffer_sU]=useState(false)
   // Rest of your component code
   
   //============end===========
@@ -434,7 +450,7 @@ const SignUp=()=>{
                 </div>
                 <hr className="hr_1"/>
                 <div className="button_save">
-                    <button className="but_sve_" onClick={runVerify}>SIGN UP</button>
+                    {buffer_signUP ? <i class="fa-solid fa-spinner fa-spin-pulse fa-xl"></i>: <button className="but_sve_" onClick={runVerify}>SIGN UP</button>}
                 </div>
                 < div className='openSignIN'>
                   <p onClick={ShowSignINpg}>Already Have an Account ?</p>
@@ -444,9 +460,12 @@ const SignUp=()=>{
         )
     }
      { !userLog &&(
-        signedIN && <>
+        signedIN &&  <>
           <div className='cloud' onClick={sendToApi_tab_data}>
-          <i style={{color : `${cloudColor}`}} className="fa-solid fa-cloud-arrow-up fa-xl"></i>
+          {cloudIcon && <i className="fa-solid fa-cloud-arrow-up fa-xl"></i>}
+          {buffer_3 && <i class="fa-solid fa-spinner fa-spin-pulse fa-xl"></i>}
+          { tick_1 && <i class="fa-solid fa-check fa-bounce" style="color: #00bd1f;"></i>}
+          {failure && <i class="fa-solid fa-x fa-shake" style="color: #ff0000;"></i>}
         </div>
         </>
         )
@@ -465,9 +484,7 @@ const SignUp=()=>{
         <div className='buffer_1'>
           {load && 
             <div className='loader_1'>
-              <div class="inner">
-                <div class="outer"></div>
-            </div>
+              <i class="fa-solid fa-spinner fa-spin-pulse fa-xl"></i>
             </div>
           }
         <p>{flash_2}</p>
