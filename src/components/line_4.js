@@ -11,6 +11,7 @@ const SignUp=()=>{
       setFlash_2('');
     }
     const hostName='https://backend-api-60pw.onrender.com';
+    //const hostName='http://localhost:1800';
     const [signedIN,setsignIN]=useState(JSON.parse(localStorage.getItem("log_Status"))||false);
     const [userLog,setLog_]=useState(false);
     // const [username_1,setUsername_1]=useState(JSON.parse(localStorage.getItem('username_1'))||'');
@@ -165,7 +166,7 @@ const SignUp=()=>{
               setTimeout(()=>{
                 setTick(false)
                 setCloud(true);
-              },1500);
+              },2000);
               return res.json(); // Parse response data
             } else {
               setFail(true);
@@ -464,8 +465,8 @@ const SignUp=()=>{
           <div className='cloud' onClick={sendToApi_tab_data}>
           {cloudIcon && <i className="fa-solid fa-cloud-arrow-up fa-xl"></i>}
           {buffer_3 && <i class="fa-solid fa-spinner fa-spin-pulse fa-xl"></i>}
-          { tick_1 && <i class="fa-solid fa-check fa-bounce" style="color: #00bd1f;"></i>}
-          {failure && <i class="fa-solid fa-x fa-shake" style="color: #ff0000;"></i>}
+          { tick_1 && <i class="fa-solid fa-check fa-bounce fa-xl" style={{color: "#00bd1f"}}></i>}
+          {failure && <i class="fa-solid fa-x fa-shake fa-xl" style={{color: "#ff0000"}}></i>}
         </div>
         </>
         )
