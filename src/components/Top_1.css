@@ -129,7 +129,10 @@ body{
 
 .logo img{
   width: 35%;
-  font-size: 40px;
+  z-index: 10;
+  font-size: 30px;
+  text-align: center;
+  vertical-align: center;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .logo,.appName{
@@ -137,8 +140,20 @@ body{
   align-items: center;
   justify-content: center;
 }
+.blurer{
+  height: 45px;
+  width: 45px;
+  background-color: #727272;
+  opacity: 0.2;
+  filter: blur(0.5px);
+  position: absolute;
+  left: 22px;
+  top: 12px;
+  border-radius: 30%;
+  z-index: 0;
+}
 .appName{
-  background-color: rgba(0, 0, 0, 0.031);
+  background-color: rgba(0, 0, 0, 0.018);
 }
 .edit_{
   position: absolute;

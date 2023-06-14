@@ -16,9 +16,9 @@ const MyApps=()=>{
             appTilte:"Gmail"
          },
          {
-            appName:'m',
-            appLink:'https://www.google.com/maps/',
-            appTilte:'Maps'
+            appName:'chat GPT',
+            appLink:'https://chat.openai.com/',
+            appTilte:'Chat GPT'
          },
          {
             appName:"google-drive",
@@ -98,13 +98,14 @@ const MyApps=()=>{
                                     <i className="fa-solid fa-xmark del" onClick={()=>deleteApp(index)}></i>
                                 </div>
                                     <a href={ele.appLink} target="_blank">
+                                        <div className="blurer" style={{backgroundColor:IconColor}}></div>
                                         <div className="logo">
                                             {/* <i className={`fa-solid fa-brands fa-${ele.appName} fa-2xl`} style={{color:IconColor}}></i> */}
                                             
                                             <img src={`${ele.appLink}favicon.ico`} alt={ele.appName[0].toUpperCase() }  />
                                             
                                         </div>
-                                        <div className="appName" style={{color:IconColor}}>{ele.appTilte}</div>
+                                        <div className="appName">{ele.appTilte}</div>
                                     </a>
                             </div>
                         ))}

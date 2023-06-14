@@ -156,7 +156,7 @@ const SignUp=()=>{
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({'app_data':AppInfo,tab_setting:{'icon_color':'#ffffff','search_eng':'google','style':'solid','bg_img': JSON.parse(localStorage.getItem("BGIarr"))},'unqid':unqCode})
+          body: JSON.stringify({'app_data':AppInfo,tab_setting:{'icon_color':'#727272','search_eng':'google','style':'solid','bg_img': JSON.parse(localStorage.getItem("BGIarr"))},'unqid':unqCode})
         })
           .then(res => {
             if (res.ok) {
