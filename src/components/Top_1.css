@@ -123,13 +123,13 @@ body{
   background-color: rgba(255, 228, 196, 0.086);
 }
 .app:hover{
-  background-color: rgba(255, 228, 196, 0.086);
+  background-color: rgba(255, 249, 236, 0.148);
   transition: all 0.4s;
 }
 
 .logo img{
   width: 35%;
-  z-index: 10;
+  z-index: 0;
   font-size: 30px;
   text-align: center;
   vertical-align: center;
