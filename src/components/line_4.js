@@ -106,6 +106,7 @@ const SignUp=()=>{
         //------------
         localStorage.setItem('MYunqId',JSON.stringify(''));
         localStorage.clear();
+        DefLoad();
       }
       
       useEffect(() => {
@@ -192,6 +193,7 @@ const SignUp=()=>{
   }
 
   //===== UNQ code validation;
+
   const [load,setload]=useState(false);
   const [flash_2,setFlash_2]=useState('');
   const takeUnq_id=()=>{
@@ -241,12 +243,14 @@ const SignUp=()=>{
       else{
         setload(false);
         setFlash_2('Tab Info Found..');
+        
         const Appdata=(data['Tab Info'][0]['app_data']);
         //console.log(Appdata);
         const backgroundimg__1=(data['Tab Info'][0]['tab_setting']['bg_img'])
         localStorage.setItem('BGIarr',JSON.stringify(backgroundimg__1));
        // console.log(backgroundimg__1);
         localStorage.setItem("Myapps",JSON.stringify(Appdata));
+        //localStorage.setItem("USERNAME",JSON.stringify(data['']))
         setTimeout(()=>setFlash_2(''),2000);
         setTimeout(()=>menuOff(),2500);
       }
@@ -267,6 +271,7 @@ const SignUp=()=>{
     setShowSignIN(false);
     setFlasher('')
   }
+  const [loader_011,setLoad011]=useState(false);
   const runVerify_SignIN=()=>{
       setFlasher('');
           const usrnme_1_SignIN = document.querySelector('.inp_user_SidnIn');
@@ -274,6 +279,7 @@ const SignUp=()=>{
           if (usrnme_1_SignIN.value.trim().length !== 0) {
               if (pswd_1_SignIN.value.trim().length >= 8) {
                 //console.log("ok");
+                setLoad011(true);
                 const userDATA={
                   username:usrnme_1_SignIN.value,
                   password:pswd_1_SignIN.value
@@ -299,6 +305,8 @@ const SignUp=()=>{
       .then(res=>{
         if(res.ok){
           setFlasher('Authentication Successful.');
+          console.log("Success");
+          localStorage.setItem("log_Status",JSON.stringify(true));
           setTimeout(()=>setsignIN(true),1500);
         }
         else{
@@ -307,8 +315,9 @@ const SignUp=()=>{
         return res.json();
       })
       .then(Data=>{
-      //  console.log(Data);
+        //  console.log(Data);
         setFlasher(Data['message']);
+        setLoad011(false);
         console.log('unq:',Data['unqid']);
         if(Data['message']==='User Found'){
           setCode(Data['unqid']);
@@ -328,7 +337,8 @@ const SignUp=()=>{
       })
     }
   //=============================
-  window.onload = ()=>{
+ 
+  const DefLoad=()=>{
     if(JSON.parse(localStorage.getItem("Myapps"))===null){
 
       localStorage.setItem("Myapps",JSON.stringify([
@@ -379,6 +389,7 @@ const SignUp=()=>{
      }
     ]));
   }
+  window.onload = DefLoad();
   //----------------------- server connectivity;
   
   const [serverStatus, setStatus] = useState(false);
@@ -406,7 +417,61 @@ const SignUp=()=>{
   
   const [buffer_signUP,setBuffer_sU]=useState(false)
   // Rest of your component code
-  
+  const [showReport,setreport]=useState(false);
+  const handleShowRep=()=>{
+   // console.log("se")
+    setreport(true);
+  }
+  const [load000,setload000]=useState(false);
+  const CheckReport=()=>{
+    const report=document.querySelector(".reportBox");
+    //console.log(report.value);
+    //console.log(unqCode);
+    if(report.value.length>=20)
+    {
+      setload000(true);
+      const report_Info={
+        'unq_id':unqCode,
+        'report':report.value
+      }
+      SendReport(report_Info);
+    }
+    else{
+     // console.log("message must  atleast have 20 characters .")
+      setFlasher21("Message must  atleast have 20 characters .");
+      setTimeout(()=>setFlasher21(" "),2000);
+    }
+    
+  }
+  const [flasher_21,setFlasher21]=useState(' ');
+  const SendReport=(report)=>{
+    console.log(report);
+    fetch(`${hostName}/report`,
+      {
+        method:'POST',
+        headers :{
+          'Content-Type': 'application/json'
+        },
+        body : JSON.stringify(report)
+      })
+      .then((res)=>{
+       console.log(res);
+        if(res.ok){
+          const report=document.querySelector(".reportBox");
+          report.value='';
+          setload000(false);
+          setFlasher21("Thanks for your report , We will look into it .");
+          setTimeout(()=>setFlasher21(" "),5000);
+        }
+        else{
+          console.log("Error");
+        }
+      })
+      .catch(err=>{
+        console.log("Error reporting: ",err);
+      })
+    
+  }
   //============end===========
     return(
         <>
@@ -424,7 +489,15 @@ const SignUp=()=>{
             <p className='main_butto' onClick={LogOut}>Log Out ??</p>
             <div className='MyUnqID'><p><span>My unique ID : </span>{unqCode}</p></div>
           </div>
+          {signedIN &&  <
+                  div className='reportButton'>
+                      <button onClick={handleShowRep}>
+                      <i class="fa-solid fa-bug"></i>
+                        Report</button>
+                    </div>
+                  }
           </div>
+          
           
           :
             (
@@ -470,6 +543,7 @@ const SignUp=()=>{
         </div>
         </>
         )
+      
     }
     {showMenu && <>
       <div className='menuBox'>
@@ -513,7 +587,36 @@ const SignUp=()=>{
                     <button className="but_sve_" onClick={runVerify_SignIN}>SIGN IN</button>
                 </div>
                 <div className='Flash_log'>{falsher}</div>
+                <div>
+               {loader_011 && <div class="loading">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>}
+                  </div>
+            </div>
+            
+              
+            }
+            {showReport && 
+            <div className='ReportPage'>
+                <div className='messageBox_1'>
+                <div className="backbutton" onClick={()=>setreport(false)}>
+                    <i className="fa-solid fa-arrow-left-long"></i>
+                </div>
+                  <textarea className='reportBox' rows={10} cols={40} placeholder='Message'></textarea>
+                  <button onClick={CheckReport}>Submit</button>
+                  <p>{flasher_21}</p>
+                  <div>
+                  {load000 && <div class="loader_001"></div>}
+                  </div>
+                </div>
             </div>}
+
+              
+           
         </>
     )
 }
