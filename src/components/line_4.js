@@ -427,7 +427,7 @@ const SignUp=()=>{
     const report=document.querySelector(".reportBox");
     //console.log(report.value);
     //console.log(unqCode);
-    if(report.value.length>=20)
+    if(report.value.length>=10)
     {
       setload000(true);
       const report_Info={
